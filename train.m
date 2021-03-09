@@ -1,7 +1,7 @@
 %教師データの読み込み
 load("data\data.mat")
 %未学習のネットワークの読み込み
-load("layers.mat")
+load("layers2.mat")
 
 %インデックスを分割
 [trainInd,valInd,testInd] = dividerand(length(X));
@@ -20,7 +20,7 @@ options = trainingOptions('adam', ...
     'Shuffle','every-epoch', ...
     'Verbose',false, ...
     'Plots','training-progress');
-net = trainNetwork(Xtrain,Ytrain,layers_1,options);
+net = trainNetwork(Xtrain,Ytrain,layers_2 ,options);
 
 %ネットワークの保存
 save("net\net","net");
